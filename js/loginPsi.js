@@ -8,7 +8,7 @@ import {
 const btn = document.getElementById("btnLogin");
 
 // Cambia este correo cuando tengas el definitivo
-const CORREO_AUTORIZADO = "psicologa@ayninakuna.org";
+const CORREO_AUTORIZADO = "mateovillagomez2@gmail.com";
 
 btn.addEventListener("click", async () => {
 
