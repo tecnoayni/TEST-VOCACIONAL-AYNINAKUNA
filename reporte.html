@@ -13,27 +13,26 @@
     <!-- Font Awesome -->
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <div class="acciones">
 
-    <button id="btnCerrarSesion" class="btnCerrar">
-        Cerrar sesión
-    </button>
-
-</div>
 </head>
 
 <body>
 
     <div class="contenedor">
-        <img src="/img/Logo.png" alt="Descripción de la imagen" class="imagen-estilo">
+
+        <img src="img/Logo.png" alt="Logo" class="imagen-estilo">
+
         <header class="encabezado">
 
             <div>
-
                 <h1>REPORTES DEL TEST VOCACIONAL</h1>
                 <p>Panel de acceso para la Psicóloga</p>
-
             </div>
+
+            <button id="btnCerrarSesion" class="btnCerrarSesion">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Cerrar sesión
+            </button>
 
         </header>
 
@@ -43,7 +42,8 @@
 
             <div class="grupo-busqueda">
 
-                <input type="text"
+                <input
+                    type="text"
                     id="txtBuscar"
                     placeholder="Buscar estudiante por nombre...">
 
@@ -68,17 +68,11 @@
                     <tr>
 
                         <th>#</th>
-
                         <th>Nombre</th>
-
                         <th>Edad</th>
-
                         <th>Colegio</th>
-
                         <th>Fecha</th>
-
                         <th>Estado</th>
-
                         <th>Acciones</th>
 
                     </tr>
@@ -90,9 +84,7 @@
                     <tr>
 
                         <td colspan="7">
-
                             Cargando estudiantes...
-
                         </td>
 
                     </tr>
@@ -114,15 +106,11 @@
             <div class="modal-header">
 
                 <h2 id="tituloModal">
-
                     Información del Estudiante
-
                 </h2>
 
                 <button id="cerrarModal">
-
                     <i class="fa-solid fa-xmark"></i>
-
                 </button>
 
             </div>
@@ -134,19 +122,13 @@
             <div class="modal-footer">
 
                 <button id="btnCrearPDF">
-
                     <i class="fa-solid fa-file-pdf"></i>
-
                     Crear PDF
-
                 </button>
 
                 <button id="btnDescargarPDF" disabled>
-
                     <i class="fa-solid fa-download"></i>
-
                     Descargar PDF
-
                 </button>
 
             </div>
