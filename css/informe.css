@@ -434,3 +434,23 @@ RESPONSIVE
   height: 150px;               /* Alto fijo */
   object-fit: cover;           /* Ajusta la imagen al tamaño sin deformarla */
 }
+.acciones{
+    display:flex;
+    justify-content:flex-end;
+    margin-bottom:20px;
+}
+
+.btnCerrar{
+    background:#dc2626;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btnCerrar:hover{
+    background:#b91c1c;
+}
