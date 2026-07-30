@@ -487,22 +487,31 @@ INICIO
 
 cargarEstudiantes();
 
+// ================================
+// CERRAR SESIÓN
+// ================================
+
 const btnCerrarSesion = document.getElementById("btnCerrarSesion");
 
 btnCerrarSesion.addEventListener("click", async () => {
 
-    if (!confirm("¿Desea cerrar la sesión?")) return;
+    const confirmar = confirm("¿Desea cerrar la sesión?");
+
+    if (!confirmar) return;
 
     try {
 
         await signOut(auth);
+
+        alert("Sesión cerrada correctamente.");
 
         window.location.href = "loginPsi.html";
 
     } catch (error) {
 
         console.error(error);
-        alert("Error al cerrar sesión.");
+
+        alert("No se pudo cerrar la sesión.");
 
     }
 
