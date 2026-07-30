@@ -7,6 +7,10 @@ import {
     getDoc
 } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
+import {
+    signOut
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+
 const tabla = document.getElementById("tablaEstudiantes");
 const txtBuscar = document.getElementById("txtBuscar");
 const btnBuscar = document.getElementById("btnBuscar");
@@ -482,3 +486,24 @@ INICIO
 ==========================================*/
 
 cargarEstudiantes();
+
+const btnCerrarSesion = document.getElementById("btnCerrarSesion");
+
+btnCerrarSesion.addEventListener("click", async () => {
+
+    if (!confirm("¿Desea cerrar la sesión?")) return;
+
+    try {
+
+        await signOut(auth);
+
+        window.location.href = "loginPsi.html";
+
+    } catch (error) {
+
+        console.error(error);
+        alert("Error al cerrar sesión.");
+
+    }
+
+});
