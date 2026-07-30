@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEST VOCACIONAL</title>
+
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    
+    <h1>TEST VOCACIONAL</h1>
+
+    <div class="contenedor">
+        <img src="/TEST 2.0/IMG/Logo.png" alt="Descripción de la imagen" class="imagen-estilo">
+        <h2>DATOS DEL ESTUDIANTE</h2>
+
+        <form id="formDatos">
+
+            <div class="datos">
+
+                <div class="campo">
+                    <label>Número de carnet:</label>
+                    <input type="number" name="carnet">
+                </div>
+
+                <div class="campo">
+                    <label>Nombre:</label>
+                    <input type="text" name="nombre">
+                </div>
+
+                <div class="campo">
+                    <label>Correo electrónico:</label>
+                    <input type="email" name="correo">
+                </div>
+
+                <div class="campo">
+                    <label>Celular:</label>
+                    <input type="tel" name="celular">
+                </div>
+
+                <div class="campo">
+                    <label>Unidad Educativa:</label>
+                    <input type="text" name="unidad">
+                </div>
+
+                <div class="campo">
+                    <label>Fecha de nacimiento:</label>
+                    <input type="date" name="fecha">
+                </div>
+
+                <div class="campo">
+                    <label>Edad:</label>
+                    <input type="number" name="edad">
+                </div>
+
+                <div class="campo">
+                    <label>Sexo:</label>
+
+                    <select name="sexo">
+                        <option value="">Seleccione...</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
+                    </select>
+
+                </div>
+
+                <div class="campo">
+                    <label>Curso:</label>
+                    <input type="text" name="curso">
+                </div>
+
+                <div class="campo">
+                    <label>Hobbies:</label>
+                    <textarea name="hobbies" rows="3"></textarea>
+                </div>
+
+            </div>
+
+            <h2>DATOS FAMILIARES</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th></th>
+                        <th>OCUPACIÓN</th>
+                        <th>NIVEL ACADÉMICO</th>
+                        <th>EDAD</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>PADRE</td>
+                        <td><input type="text" name="ocupacionPadre"></td>
+                        <td><input type="text" name="nivelPadre"></td>
+                        <td><input type="number" name="edadPadre"></td>
+                    </tr>
+
+                    <tr>
+                        <td>MADRE</td>
+                        <td><input type="text" name="ocupacionMadre"></td>
+                        <td><input type="text" name="nivelMadre"></td>
+                        <td><input type="number" name="edadMadre"></td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="5">HERMANOS</td>
+                        <td><input type="text" name="ocupacionHermano1"></td>
+                        <td><input type="text" name="nivelHermano1"></td>
+                        <td><input type="number" name="edadHermano1"></td>
+                    </tr>
+
+                    <tr>
+                        <td><input type="text" name="ocupacionHermano2"></td>
+                        <td><input type="text" name="nivelHermano2"></td>
+                        <td><input type="number" name="edadHermano2"></td>
+                    </tr>
+
+                    <tr>
+                        <td><input type="text" name="ocupacionHermano3"></td>
+                        <td><input type="text" name="nivelHermano3"></td>
+                        <td><input type="number" name="edadHermano3"></td>
+                    </tr>
+
+                    <tr>
+                        <td><input type="text" name="ocupacionHermano4"></td>
+                        <td><input type="text" name="nivelHermano4"></td>
+                        <td><input type="number" name="edadHermano4"></td>
+                    </tr>
+
+                    <tr>
+                        <td><input type="text" name="ocupacionHermano5"></td>
+                        <td><input type="text" name="nivelHermano5"></td>
+                        <td><input type="number" name="edadHermano5"></td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+            <h2>ACTIVIDADES ACADÉMICAS</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>¿Qué materias te agradan?</th>
+                        <th>¿Por qué?</th>
+                        <th>¿Qué materias te desagradan?</th>
+                        <th>¿Por qué?</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td><input type="text" name="materiaGusta1"></td>
+                        <td><input type="text" name="porqueGusta1"></td>
+                        <td><input type="text" name="materiaNoGusta1"></td>
+                        <td><input type="text" name="porqueNoGusta1"></td>
+                    </tr>
+
+                    <tr>
+                        <td><input type="text" name="materiaGusta2"></td>
+                        <td><input type="text" name="porqueGusta2"></td>
+                        <td><input type="text" name="materiaNoGusta2"></td>
+                        <td><input type="text" name="porqueNoGusta2"></td>
+                    </tr>
+
+                    <tr>
+                        <td><input type="text" name="materiaGusta3"></td>
+                        <td><input type="text" name="porqueGusta3"></td>
+                        <td><input type="text" name="materiaNoGusta3"></td>
+                        <td><input type="text" name="porqueNoGusta3"></td>
+                    </tr>
+
+                    <tr>
+                        <td><input type="text" name="materiaGusta4"></td>
+                        <td><input type="text" name="porqueGusta4"></td>
+                        <td><input type="text" name="materiaNoGusta4"></td>
+                        <td><input type="text" name="porqueNoGusta4"></td>
+                    </tr>
+
+                    <tr>
+                        <td><input type="text" name="materiaGusta5"></td>
+                        <td><input type="text" name="porqueGusta5"></td>
+                        <td><input type="text" name="materiaNoGusta5"></td>
+                        <td><input type="text" name="porqueNoGusta5"></td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+            <div class="botones">
+                <button type="button" id="btnSiguiente" class="btn-siguiente">
+                    SIGUIENTE
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+
+    <script type="module" src="js/datos.js"></script>
+
+</body>
+
+</html>

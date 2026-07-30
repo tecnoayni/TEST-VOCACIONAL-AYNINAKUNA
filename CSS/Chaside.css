@@ -1,0 +1,176 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fac6ae;
+    color: #333;
+    padding: 30px;
+}
+
+/* ===========================
+   ENCABEZADO
+=========================== */
+
+header{
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+header h1{
+    font-size: 40px;
+    color: #ffffff;
+}
+
+/* ===========================
+   CONTENEDOR DEL TEST
+=========================== */
+
+.chaside{
+    width: fit-content;
+    max-width: 950px;
+    margin: auto;
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.15);
+}
+
+/* ===========================
+   PREGUNTAS
+=========================== */
+
+.chaside label{
+    display: block;
+    max-width: 850px;
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 1.5;
+    margin-bottom: 8px;
+    word-wrap: break-word;
+}
+
+.chaside select{
+    width: 220px;
+    padding: 10px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 25px;
+    transition: .3s;
+}
+
+.chaside select:hover{
+    border-color: #0d6efd;
+}
+
+.chaside select:focus{
+    outline: none;
+    border-color: #0d6efd;
+    box-shadow: 0 0 8px rgba(13,110,253,.3);
+}
+
+/* ===========================
+   PIE DE PÁGINA
+=========================== */
+
+footer{
+    text-align: center;
+    margin-top: 40px;
+    color: #666;
+    font-size: 14px;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 768px){
+
+    body{
+        padding: 15px;
+    }
+
+    header h1{
+        font-size: 28px;
+    }
+
+    .chaside{
+        width: 100%;
+        padding: 20px;
+    }
+
+    .chaside label{
+        font-size: 15px;
+        max-width: 100%;
+    }
+
+    .chaside select{
+        width: 100%;
+    }
+
+}
+
+.chaside .botones{
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+}
+
+.chaside .btn-siguiente{
+    padding: 14px 45px;
+    font-size: 17px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #4f46e5, #2563eb);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all .3s ease;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, .35);
+    letter-spacing: .5px;
+}
+
+.chaside .btn-siguiente:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px rgba(37, 99, 235, .45);
+    background: linear-gradient(135deg, #ef4922, #f26d45);
+}
+
+.chaside .btn-siguiente:active{
+    transform: scale(.96);
+    box-shadow: 0 4px 10px rgba(37, 99, 235, .3);
+}
+
+.chaside .btn-siguiente:focus{
+    outline: none;
+    box-shadow: 0 0 0 5px rgba(79, 70, 229, .25);
+}
+
+@media (max-width:768px){
+
+    .chaside .btn-siguiente{
+        width: 100%;
+        padding: 16px;
+        font-size: 16px;
+    }
+
+}
+
+.imagen-estilo {
+  display: block;              /* Permite centrar con margin */
+  margin: 0 auto;              /* Centra horizontalmente */
+  /*background-color: white;     /* Fondo blanco */
+  /*border-radius: 15px;         /* Bordes redondeados */
+  padding: 10px;               /* Espacio interno */
+  /*box-shadow: 0 0 10px rgba(0,0,0,0.2); /* Sombra suave */
+  width: 300px;                /* Ancho fijo */
+  height: 150px;               /* Alto fijo */
+  object-fit: cover;           /* Ajusta la imagen al tamaño sin deformarla */
+}

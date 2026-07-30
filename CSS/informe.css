@@ -1,0 +1,436 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+
+    background:#fac6ae;
+    min-height:100vh;
+    padding:30px;
+
+}
+
+/*==============================
+CONTENEDOR
+==============================*/
+
+.contenedor{
+
+    max-width:1400px;
+    margin:auto;
+    background:#fff;
+    border-radius:20px;
+    padding:35px;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+
+}
+
+/*==============================
+ENCABEZADO
+==============================*/
+
+.encabezado{
+
+    margin-bottom:30px;
+
+}
+
+.encabezado h1{
+
+    color:#ef4922;
+    font-size:38px;
+    margin-bottom:8px;
+
+}
+
+.encabezado p{
+
+    color:#666;
+    font-size:17px;
+
+}
+
+/*==============================
+BUSCADOR
+==============================*/
+
+.buscador{
+
+    margin-bottom:30px;
+
+}
+
+.grupo-busqueda{
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+}
+
+.grupo-busqueda input{
+
+    flex:1;
+    padding:14px 18px;
+    border:2px solid #ddd;
+    border-radius:12px;
+    font-size:16px;
+    transition:.3s;
+
+}
+
+.grupo-busqueda input:focus{
+
+    outline:none;
+    border-color:#ef4922;
+    box-shadow:0 0 10px rgba(239,73,34,.2);
+
+}
+
+.grupo-busqueda button{
+
+    width:55px;
+    height:55px;
+    border:none;
+    border-radius:12px;
+    background:#2563eb;
+    color:#fff;
+    cursor:pointer;
+    font-size:18px;
+    transition:.3s;
+
+}
+
+.grupo-busqueda button:hover{
+
+    background:#1d4ed8;
+
+}
+
+/*==============================
+TABLA
+==============================*/
+
+.tabla{
+
+    overflow-x:auto;
+
+}
+
+table{
+
+    width:100%;
+    border-collapse:collapse;
+
+}
+
+thead{
+
+    background:#ef4922;
+    color:#fff;
+
+}
+
+th{
+
+    padding:15px;
+    text-align:center;
+    font-size:15px;
+
+}
+
+td{
+
+    padding:14px;
+    text-align:center;
+    border-bottom:1px solid #eee;
+
+}
+
+tbody tr{
+
+    transition:.2s;
+
+}
+
+tbody tr:hover{
+
+    background:#fff5f2;
+
+}
+
+/*==============================
+BOTONES DE ACCIÓN
+==============================*/
+
+.acciones-tabla{
+
+    display:flex;
+    justify-content:center;
+    gap:10px;
+
+}
+
+.btn-ver,
+.btn-pdf{
+
+    border:none;
+    padding:10px 16px;
+    border-radius:8px;
+    color:#fff;
+    cursor:pointer;
+    transition:.3s;
+
+}
+
+.btn-ver{
+
+    background:#2563eb;
+
+}
+
+.btn-ver:hover{
+
+    background:#1d4ed8;
+
+}
+
+.btn-pdf{
+
+    background:#ef4922;
+
+}
+
+.btn-pdf:hover{
+
+    background:#d53d18;
+
+}
+
+/*==============================
+MODAL
+==============================*/
+
+.modal{
+
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+
+}
+
+.modal.activo{
+
+    display:flex;
+
+}
+
+.modal-contenido{
+
+    width:95%;
+    max-width:1100px;
+    max-height:90vh;
+    overflow:auto;
+    background:#fff;
+    border-radius:20px;
+    animation:aparecer .25s;
+
+}
+
+@keyframes aparecer{
+
+    from{
+
+        transform:scale(.9);
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+        opacity:1;
+
+    }
+
+}
+
+.modal-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 30px;
+    border-bottom:1px solid #eee;
+
+}
+
+.modal-header h2{
+
+    color:#ef4922;
+
+}
+
+.modal-header button{
+
+    width:40px;
+    height:40px;
+    border:none;
+    border-radius:50%;
+    cursor:pointer;
+    background:#ef4922;
+    color:#fff;
+    font-size:18px;
+
+}
+
+.modal-body{
+
+    padding:30px;
+    max-height:60vh;
+    overflow:auto;
+
+}
+
+.modal-footer{
+
+    display:flex;
+    justify-content:flex-end;
+    gap:15px;
+    padding:20px 30px;
+    border-top:1px solid #eee;
+
+}
+
+.modal-footer button{
+
+    padding:13px 25px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    color:#fff;
+    font-size:15px;
+    transition:.3s;
+
+}
+
+#btnCrearPDF{
+
+    background:#ef4922;
+
+}
+
+#btnCrearPDF:hover{
+
+    background:#d53d18;
+
+}
+
+#btnDescargarPDF{
+
+    background:#16a34a;
+
+}
+
+#btnDescargarPDF:hover{
+
+    background:#15803d;
+
+}
+
+#btnDescargarPDF:disabled{
+
+    background:#999;
+    cursor:not-allowed;
+
+}
+
+/*==============================
+TARJETAS DEL MODAL
+==============================*/
+
+.card{
+
+    background:#fafafa;
+    border-left:5px solid #ef4922;
+    border-radius:10px;
+    padding:18px;
+    margin-bottom:20px;
+
+}
+
+.card h3{
+
+    color:#ef4922;
+    margin-bottom:10px;
+
+}
+
+.card table{
+
+    margin-top:15px;
+
+}
+
+/*==============================
+RESPONSIVE
+==============================*/
+
+@media(max-width:900px){
+
+    .encabezado h1{
+
+        font-size:28px;
+
+    }
+
+    .grupo-busqueda{
+
+        flex-direction:column;
+
+    }
+
+    .grupo-busqueda button{
+
+        width:100%;
+
+    }
+
+    .acciones-tabla{
+
+        flex-direction:column;
+
+    }
+
+    .modal-footer{
+
+        flex-direction:column;
+
+    }
+
+    .modal-footer button{
+
+        width:100%;
+
+    }
+
+}
+
+.imagen-estilo {
+  display: block;              /* Permite centrar con margin */
+  margin: 0 auto;              /* Centra horizontalmente */
+  /*background-color: white;     /* Fondo blanco */
+  /*border-radius: 15px;         /* Bordes redondeados */
+  padding: 10px;               /* Espacio interno */
+  /*box-shadow: 0 0 10px rgba(0,0,0,0.2); /* Sombra suave */
+  width: 300px;                /* Ancho fijo */
+  height: 150px;               /* Alto fijo */
+  object-fit: cover;           /* Ajusta la imagen al tamaño sin deformarla */
+}

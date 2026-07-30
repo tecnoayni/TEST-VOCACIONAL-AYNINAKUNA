@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Panel de Informes</title>
+
+    <link rel="stylesheet" href="css/informe.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <div class="contenedor">
+        <img src="/TEST 2.0/IMG/Logo.png" alt="Descripción de la imagen" class="imagen-estilo">
+        <header class="encabezado">
+
+            <div>
+
+                <h1>REPORTES DEL TEST VOCACIONAL</h1>
+                <p>Panel de acceso para la Psicóloga</p>
+
+            </div>
+
+        </header>
+
+        <!-- BUSCADOR -->
+
+        <section class="buscador">
+
+            <div class="grupo-busqueda">
+
+                <input type="text"
+                    id="txtBuscar"
+                    placeholder="Buscar estudiante por nombre...">
+
+                <button id="btnBuscar">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- TABLA -->
+
+        <section class="tabla">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>#</th>
+
+                        <th>Nombre</th>
+
+                        <th>Edad</th>
+
+                        <th>Colegio</th>
+
+                        <th>Fecha</th>
+
+                        <th>Estado</th>
+
+                        <th>Acciones</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="tablaEstudiantes">
+
+                    <tr>
+
+                        <td colspan="7">
+
+                            Cargando estudiantes...
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </div>
+
+    <!-- MODAL -->
+
+    <div class="modal" id="modalDetalle">
+
+        <div class="modal-contenido">
+
+            <div class="modal-header">
+
+                <h2 id="tituloModal">
+
+                    Información del Estudiante
+
+                </h2>
+
+                <button id="cerrarModal">
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+            <div class="modal-body" id="contenidoModal">
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button id="btnCrearPDF">
+
+                    <i class="fa-solid fa-file-pdf"></i>
+
+                    Crear PDF
+
+                </button>
+
+                <button id="btnDescargarPDF" disabled>
+
+                    <i class="fa-solid fa-download"></i>
+
+                    Descargar PDF
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Librerías PDF -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+
+    <script type="module" src="js/informe.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,234 @@
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#fac6ae;
+}
+
+/*========================*/
+
+.encabezado{
+    text-align:center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.encabezado h1{
+
+    color:#ffffff;
+
+    font-size:42px;
+
+    margin-bottom:10px;
+
+}
+
+.encabezado p{
+
+    font-size:18px;
+
+    color:#000000;
+
+    max-width:700px;
+
+    margin:auto;
+
+    line-height:1.6;
+    text-align:justify;
+
+}
+/* ===========================
+   CONTENEDOR DE LA TABLA
+=========================== */
+
+.tabla-container{
+    width: 95%;
+    max-width: 1200px;
+    margin: 40px auto;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.18);
+}
+
+/* ===========================
+   TABLA
+=========================== */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    overflow:hidden;
+    border-radius:15px;
+}
+
+/* Encabezado principal */
+
+thead tr:first-child th{
+    background:#f26d45;
+    color:white;
+    font-size:18px;
+    padding:15px;
+    border:2px solid white;
+}
+
+/* Segunda fila */
+
+thead tr:nth-child(2) th{
+    background:#60fffc;
+    color:#222;
+    font-weight:bold;
+    padding:12px;
+    border:2px solid white;
+}
+
+/* Celdas */
+
+th,
+td{
+    text-align:center;
+    border:1px solid #ddd;
+    padding:12px;
+}
+
+/* Primera columna */
+
+td:first-child{
+    text-align:left;
+    font-weight:bold;
+    background:#fff6f2;
+    width:320px;
+    padding-left:18px;
+}
+
+/* Filas */
+
+tbody tr:nth-child(even){
+    background:#f8f8f8;
+}
+
+tbody tr:hover{
+    background:#dffdfd;
+    transition:.3s;
+}
+
+/* Casillas */
+
+td:not(:first-child){
+    width:55px;
+    height:55px;
+}
+
+/* ===========================
+   RADIO PERSONALIZADO
+=========================== */
+
+input[type="radio"]{
+
+    appearance:none;
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    border:2px solid #f26d45;
+    cursor:pointer;
+    transition:.2s;
+    position:relative;
+
+}
+
+input[type="radio"]:checked{
+
+    background:#f26d45;
+
+}
+
+input[type="radio"]:checked::after{
+
+    content:"";
+    position:absolute;
+    width:8px;
+    height:8px;
+    background:white;
+    border-radius:50%;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+
+}
+
+input[type="radio"]:hover{
+
+    transform:scale(1.2);
+
+}
+
+/* ===========================
+   BOTÓN
+=========================== */
+
+.botones{
+
+    text-align:center;
+    margin-top:30px;
+
+}
+
+.btn-siguiente{
+
+    padding: 14px 45px;
+    font-size: 17px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #4f46e5, #2563eb);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all .3s ease;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, .35);
+    letter-spacing: .5px;
+
+}
+
+.btn-siguiente:hover{
+     transform: translateY(-4px);
+    box-shadow: 0 14px 28px rgba(37, 99, 235, .45);
+    background: linear-gradient(135deg, #ef4922, #f26d45);
+}
+
+.btn-siguiente:active{
+    transform: scale(.96);
+    box-shadow: 0 4px 10px rgba(37, 99, 235, .3);
+}
+
+.btn-siguiente:focus{
+    outline: none;
+    box-shadow: 0 0 0 5px rgba(79, 70, 229, .25);
+}
+
+
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:900px){
+
+    .tabla-container{
+        overflow-x:auto;
+    }
+
+    table{
+        min-width:900px;
+    }
+
+}
+
+.imagen-estilo {
+  display: block;              /* Permite centrar con margin */
+  margin: 0 auto;              /* Centra horizontalmente */
+  /*background-color: white;     /* Fondo blanco */
+  /*border-radius: 15px;         /* Bordes redondeados */
+  padding: 10px;               /* Espacio interno */
+  /*box-shadow: 0 0 10px rgba(0,0,0,0.2); /* Sombra suave */
+  width: 300px;                /* Ancho fijo */
+  height: 150px;               /* Alto fijo */
+  object-fit: cover;           /* Ajusta la imagen al tamaño sin deformarla */
+}

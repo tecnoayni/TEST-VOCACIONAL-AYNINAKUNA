@@ -1,0 +1,337 @@
+/*==========================
+    GENERAL
+==========================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#fac6ae;
+}
+
+/*==========================
+    ENCABEZADO
+==========================*/
+
+.encabezado{
+    text-align:center;
+    padding:30px 20px 10px;
+    text-shadow:2px 2px 4px rgba(0,0,0,.35);
+}
+
+.encabezado h1{
+    color:#ffffff;
+    font-size:42px;
+    margin-top:15px;
+    margin-bottom:10px;
+}
+
+.encabezado p{
+    color:#111;
+    font-size:18px;
+    line-height:1.7;
+    max-width:900px;
+    margin:auto;
+    text-align:justify;
+}
+
+/*==========================
+    IMAGEN
+==========================*/
+
+.imagen-estilo{
+    display:block;
+    margin:auto;
+    width:300px;
+    height:150px;
+    object-fit:contain;
+}
+
+/*==========================
+    CONTENEDOR TABLA
+==========================*/
+
+.tabla-container{
+
+    width:95%;
+    max-width:1400px;
+    margin:35px auto;
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.18);
+
+    overflow-x:auto;
+
+}
+
+/*==========================
+    TABLA
+==========================*/
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+}
+
+/*==========================
+    ENCABEZADO TABLA
+==========================*/
+
+thead tr:first-child th{
+
+    background:#f26d45;
+
+    color:#fff;
+
+    font-size:20px;
+
+    padding:16px;
+
+    border:2px solid #fff;
+
+}
+
+thead tr:nth-child(2) th{
+
+    background:#60fffc;
+
+    color:#222;
+
+    font-size:17px;
+
+    padding:12px;
+
+    border:2px solid #fff;
+
+}
+
+thead th{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:5;
+
+}
+
+/*==========================
+    CELDAS
+==========================*/
+
+th,
+td{
+
+    border:1px solid #dddddd;
+
+    padding:14px;
+
+    text-align:center;
+
+}
+
+tbody tr:nth-child(even){
+
+    background:#fafafa;
+
+}
+
+tbody tr:hover{
+
+    background:#fff3ee;
+
+    transition:.25s;
+
+}
+
+td:first-child{
+
+    width:75%;
+
+    min-width:700px;
+
+    text-align:left;
+
+    font-weight:600;
+
+    background:#fff6f2;
+
+    line-height:1.5;
+
+    padding-left:18px;
+
+}
+
+td:not(:first-child){
+
+    width:8%;
+
+}
+
+/*==========================
+    RADIO
+==========================*/
+
+input[type="radio"]{
+
+    appearance:none;
+
+    width:24px;
+
+    height:24px;
+
+    border-radius:50%;
+
+    border:3px solid #f26d45;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+    position:relative;
+
+}
+
+input[type="radio"]:hover{
+
+    transform:scale(1.15);
+
+}
+
+input[type="radio"]:checked{
+
+    background:#f26d45;
+
+}
+
+input[type="radio"]:checked::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:9px;
+
+    height:9px;
+
+    background:#fff;
+
+    border-radius:50%;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+}
+
+/*==========================
+    BOTÓN
+==========================*/
+
+.botones{
+
+    text-align:center;
+
+    margin-top:35px;
+
+}
+
+.btn-siguiente{
+
+    padding:14px 50px;
+
+    border:none;
+
+    border-radius:50px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    background:linear-gradient(135deg,#4f46e5,#2563eb);
+
+    transition:.3s;
+
+    box-shadow:0 8px 20px rgba(37,99,235,.35);
+
+}
+
+.btn-siguiente:hover{
+
+    background:linear-gradient(135deg,#ef4922,#f26d45);
+
+    transform:translateY(-4px);
+
+    box-shadow:0 14px 28px rgba(37,99,235,.45);
+
+}
+
+.btn-siguiente:active{
+
+    transform:scale(.96);
+
+}
+
+.btn-siguiente:focus{
+
+    outline:none;
+
+    box-shadow:0 0 0 5px rgba(79,70,229,.25);
+
+}
+
+/*==========================
+    RESPONSIVE
+==========================*/
+
+@media(max-width:900px){
+
+    .encabezado h1{
+
+        font-size:30px;
+
+    }
+
+    .encabezado p{
+
+        font-size:16px;
+
+    }
+
+    .imagen-estilo{
+
+        width:220px;
+
+        height:auto;
+
+    }
+
+    table{
+
+        min-width:950px;
+
+    }
+
+}

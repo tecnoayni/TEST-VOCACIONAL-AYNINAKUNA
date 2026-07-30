@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Vocacional</title>
+    <link rel="stylesheet" href="css/tablaProf.css">
+</head>
+<body>
+
+    <header class="encabezado">
+        <h1>TEST VOCACIONAL - INTERESES PROFESIONALES</h1>
+    </header>
+
+    <form id="formTest">
+        <div class="tabla-container">
+            <img src="/TEST 2.0/IMG/Logo.png" alt="Descripción de la imagen" class="imagen-estilo">
+            <p>
+                En este cuestionario deberás indicar tus gustos y preferencias sobre distintas profesiones. 
+                Si no conoces una profesión, marca la letra D; si no te gusta, marca la letra R; y si te gusta, 
+                marca la letra E. Además, tendrás que valorar cada profesión en dos aspectos: en lo social, 
+                escribiendo un número del 1 al 3 según el prestigio que creas que tiene (1 = bajo, 2 = medio, 3 = alto), 
+                y en lo económico, también con un número del 1 al 3 según el dinero que pienses que puede generar 
+                (1 = poco, 2 = suficiente, 3 = mucho). En resumen, tu tarea es marcar si conoces, te gusta o rechazas 
+                cada profesión y luego evaluar qué tanto prestigio y dinero crees que da.
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th rowspan="2">PROFESIÓN</th>
+                        <th colspan="3">PERSONAL</th>
+                        <th colspan="3">SOCIAL</th>
+                        <th colspan="3">ECONOMÍA</th>
+                    </tr>
+                    <tr>
+                        <th>D</th><th>R</th><th>E</th>
+                        <th>1</th><th>2</th><th>3</th>
+                        <th>1</th><th>2</th><th>3</th>
+                    </tr>
+                </thead>
+
+                <!-- El <tbody> se rellena dinámicamente con JS a partir de PROFESIONES -->
+                <tbody id="tablaBody"></tbody>
+            </table>
+
+            <div class="botones">
+                <button type="button" class="btn-siguiente" id="btnSiguiente">
+                    Siguiente
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <script type="module">
+        import { db } from "./firebase-config.js";
+        import {
+            doc,
+            updateDoc
+        } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
+        console.log("TestVocacional cargado");
+
+        // -----------------------------------------------------------------
+        // 1) DATOS: una sola fuente de verdad con todas las profesiones.
+        //    Cada "key" es el prefijo usado para los name="" de los radios
+        //    (equivalente a "Civil", "Industrial", etc. en el HTML original).
+        //    Para agregar/quitar una carrera, solo se edita este arreglo.
+        // -----------------------------------------------------------------
+        const PROFESIONES = [
+            { key: "Civil",              nombre: "Ingeniería Civil" },
+            { key: "Industrial",         nombre: "Ingeniería Industrial" },
+            { key: "Mecanica",           nombre: "Ingeniería Mecánica" },
+            { key: "Mecatronica",        nombre: "Ingeniería Mecatrónica" },
+            { key: "Electromecanica",    nombre: "Ingeniería Electromecánica" },
+            { key: "Electrica",          nombre: "Ingeniería Eléctrica" },
+            { key: "Telecom",            nombre: "Ingeniería en Telecomunicaciones" },
+            { key: "Informatica",        nombre: "Ingeniería Informática" },
+            { key: "Sistemas",           nombre: "Ingeniería de Sistemas" },
+            { key: "Energias",          nombre: "Ingeniería en Energías Renovables" },
+            { key: "Ambiental",          nombre: "Ingeniería Ambiental" },
+            { key: "Alimentos",          nombre: "Ingeniería de Alimentos" },
+            { key: "Metalurgica",        nombre: "Ingeniería Metalúrgica" },
+            { key: "Petrolera",          nombre: "Ingeniería Petrolera" },
+            { key: "Fisica",             nombre: "Física" },
+            { key: "Matematicas",        nombre: "Matemáticas" },
+            { key: "Quimica",            nombre: "Química" },
+            { key: "Medicina",           nombre: "Medicina" },
+            { key: "Enfermeria",         nombre: "Enfermería" },
+            { key: "Odontologia",        nombre: "Odontología" },
+            { key: "Fisioterapia",       nombre: "Fisioterapia" },
+            { key: "Nutricion",          nombre: "Nutrición" },
+            { key: "Bioquimica",         nombre: "Bioquímica y Farmacia" },
+            { key: "Biologia",           nombre: "Biología" },
+            { key: "Biotecnologia",      nombre: "Biotecnología" },
+            { key: "Administracion",     nombre: "Administración de Empresas" },
+            { key: "IngComercial",       nombre: "Ingeniería Comercial" },
+            { key: "Contaduria",         nombre: "Contaduría Pública" },
+            { key: "Auditoria",          nombre: "Auditoría" },
+            { key: "Economia",           nombre: "Economía" },
+            { key: "IngFinanciera",      nombre: "Ingeniería Financiera" },
+            { key: "Marketing",          nombre: "Publicidad y Marketing" },
+            { key: "ComercioInt",        nombre: "Comercio Internacional" },
+            { key: "Turismo",            nombre: "Hotelería y Turismo" },
+            { key: "Arquitectura",       nombre: "Arquitectura" },
+            { key: "DisenoGrafico",      nombre: "Diseño Gráfico" },
+            { key: "DisenoInteriores",   nombre: "Diseño de Interiores" },
+            { key: "DisenoModas",        nombre: "Diseño de Modas" },
+            { key: "ArtesPlasticas",     nombre: "Artes Plásticas" },
+            { key: "ArtesEscenicas",     nombre: "Artes Escénicas (Teatro, Danza)" },
+            { key: "Musica",             nombre: "Música" },
+            { key: "Cine",               nombre: "Cine y Producción Audiovisual" },
+            { key: "Fotografia",         nombre: "Fotografía" },
+            { key: "ProdMultimedia",     nombre: "Producción Multimedia" },
+            { key: "DisenoDigital",      nombre: "Diseño Digital" },
+            { key: "Psicologia",         nombre: "Psicología" },
+            { key: "Sociologia",         nombre: "Sociología" },
+            { key: "TrabajoSocial",      nombre: "Trabajo Social" },
+            { key: "Gastronomia",        nombre: "Gastronomía" },
+            { key: "Antropologia",       nombre: "Antropología" },
+            { key: "Historia",           nombre: "Historia" },
+            { key: "Linguistica",        nombre: "Lingüística" },
+            { key: "Filosofia",          nombre: "Filosofía" },
+            { key: "CienciasPoliticas",  nombre: "Ciencias Políticas" },
+            { key: "Teologia",           nombre: "Teología" },
+            { key: "Idiomas",            nombre: "Idiomas" },
+            { key: "CienciasEducacion",  nombre: "Ciencias de la Educación (Pedagogía)" },
+            { key: "Derecho",            nombre: "Derecho" },
+            { key: "RelacionesInt",      nombre: "Relaciones Internacionales" },
+            { key: "Criminologia",       nombre: "Criminología" },
+            { key: "Agronomia",          nombre: "Agronomía" },
+            { key: "ProdAgropecuaria",   nombre: "Producción Agropecuaria" },
+            { key: "IngForestal",        nombre: "Ingeniería Forestal" },
+            { key: "IngRecursosHidricos",nombre: "Ingeniería en Recursos Hídricos" },
+            { key: "EducacionInicial",   nombre: "Educación Inicial" },
+            { key: "EducacionPrimaria",  nombre: "Educación Primaria" },
+            { key: "EducacionSecundaria",nombre: "Educación Secundaria" },
+            { key: "Pedagogia",          nombre: "Pedagogía" },
+            { key: "Policia",            nombre: "Policía Boliviana" },
+            { key: "FuerzasArmadas",     nombre: "Fuerzas Armadas" },
+        ];
+
+        // Las tres secciones de la tabla y sus valores posibles
+        const SECCIONES = [
+            { sufijo: "P", valores: ["D", "R", "E"] }, // Personal
+            { sufijo: "S", valores: ["1", "2", "3"] }, // Social
+            { sufijo: "E", valores: ["1", "2", "3"] }, // Economía
+        ];
+
+        // -----------------------------------------------------------------
+        // 2) RENDER: construye cada <tr> a partir de PROFESIONES/SECCIONES
+        // -----------------------------------------------------------------
+        function crearCeldaRadio(name, value) {
+            const td = document.createElement("td");
+            const input = document.createElement("input");
+            input.type = "radio";
+            input.name = name;
+            input.value = value;
+            td.appendChild(input);
+            return td;
+        }
+
+        function crearFila(profesion, numero) {
+            const tr = document.createElement("tr");
+
+            const tdNombre = document.createElement("td");
+            tdNombre.textContent = `${numero}) ${profesion.nombre}`;
+            tr.appendChild(tdNombre);
+
+            SECCIONES.forEach(seccion => {
+                const name = `${profesion.key}${seccion.sufijo}`;
+                seccion.valores.forEach(valor => {
+                    tr.appendChild(crearCeldaRadio(name, valor));
+                });
+            });
+
+            return tr;
+        }
+
+        function renderTabla() {
+            const tbody = document.getElementById("tablaBody");
+            const fragment = document.createDocumentFragment();
+
+            PROFESIONES.forEach((profesion, i) => {
+                fragment.appendChild(crearFila(profesion, i + 1));
+            });
+
+            tbody.appendChild(fragment);
+        }
+
+        renderTabla();
+
+        // -----------------------------------------------------------------
+        // 3) RECOLECCIÓN DE RESPUESTAS
+        // -----------------------------------------------------------------
+
+        // Devuelve el value del radio marcado en un grupo, o null si nadie
+        // lo marcó todavía (así no sobreescribimos con "" un valor previo).
+        function obtenerSeleccion(name) {
+            const radios = document.getElementsByName(name);
+            for (const radio of radios) {
+                if (radio.checked) return radio.value;
+            }
+            return null;
+        }
+
+        // Arma el objeto plano para updateDoc, con notación de punto,
+        // igual que "social.C88": valor, pero bajo la rama "vocacional".
+        function recolectarDatos() {
+            const datos = {};
+
+            PROFESIONES.forEach(profesion => {
+                SECCIONES.forEach(seccion => {
+                    const name = `${profesion.key}${seccion.sufijo}`;
+                    const valor = obtenerSeleccion(name);
+                    if (valor !== null) {
+                        datos[`vocacional.${name}`] = valor;
+                    }
+                });
+            });
+
+            return datos;
+        }
+
+        // -----------------------------------------------------------------
+        // 4) GUARDADO Y NAVEGACIÓN
+        // -----------------------------------------------------------------
+        document.getElementById("btnSiguiente").addEventListener("click", async () => {
+
+            console.log("Botón presionado");
+
+            const idEstudiante = localStorage.getItem("idEstudiante");
+            console.log("ID:", idEstudiante);
+
+            const datos = recolectarDatos();
+            console.log(datos);
+
+            try {
+                await updateDoc(doc(db, "datosEstudiante", idEstudiante), datos);
+                console.log("Guardado correctamente");
+                window.location.href = "TestIntProf1.html";
+            } catch (error) {
+                console.error(error);
+            }
+        });
+    </script>
+    <script type="module" src="js/InstProf.js"></script>
+</body>
+</html>
